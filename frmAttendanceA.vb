@@ -13,6 +13,10 @@ Public Class frmAttendanceA
         LoadAttendance()
     End Sub
 
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        FilterAttendance(txtSearch.Text.Trim)
+    End Sub
+
     ' --- LOAD ALL RECORDS INTO GRID ---
     Private Sub LoadAttendance()
         Try
@@ -75,9 +79,29 @@ Public Class frmAttendanceA
         End Try
     End Sub
 
+    '--- FILTER RECORDS IN GRID ---
+    Private Sub FilterAttendance(keyword As String)
+        Try
+            Connect()
+            Dim dt As New DataTable
+            Dim cmd As New MySqlCommand(
+            "SELECT * FROM attendance " &
+            "WHERE StudentID LIKE @kw OR StudentName LIKE @kw " &
+            "ORDER BY Date DESC", cn)
+            cmd.Parameters.AddWithValue("@kw", "%" & keyword & "%")
+            Dim da As New MySqlDataAdapter(cmd)
+            da.Fill(dt)
+            dgvAttendance.DataSource = dt
+            lblStatus.Text = "Records found: " & dt.Rows.Count
+        Catch ex As Exception
+            MsgBox("Filter error: " & ex.Message)
+        End Try
+    End Sub
+
+
     ' --- SYNC TO SERVER ---
     Private Sub btnSync_Click(sender As Object, e As EventArgs) Handles btnSync.Click
-        Dim serverIP As String = "192.168.1.100"   ' <-- Server PC, change per branch
+        Dim serverIP As String = "localhost"   ' <-- Server PC, change when at school
         Dim sent As Integer = 0
         Dim skipped As Integer = 0
         Try

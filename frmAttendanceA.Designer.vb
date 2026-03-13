@@ -38,6 +38,8 @@ Partial Class frmAttendanceA
         Me.btnViewUnsynced = New System.Windows.Forms.Button()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dgvAttendance, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -138,7 +140,7 @@ Partial Class frmAttendanceA
         'dgvAttendance
         '
         Me.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAttendance.Location = New System.Drawing.Point(47, 27)
+        Me.dgvAttendance.Location = New System.Drawing.Point(49, 68)
         Me.dgvAttendance.Name = "dgvAttendance"
         Me.dgvAttendance.ReadOnly = True
         Me.dgvAttendance.Size = New System.Drawing.Size(934, 280)
@@ -147,7 +149,7 @@ Partial Class frmAttendanceA
         'btnSave
         '
         Me.btnSave.Font = New System.Drawing.Font("MS Reference Sans Serif", 14.25!)
-        Me.btnSave.Location = New System.Drawing.Point(47, 338)
+        Me.btnSave.Location = New System.Drawing.Point(49, 364)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(199, 35)
         Me.btnSave.TabIndex = 11
@@ -157,7 +159,7 @@ Partial Class frmAttendanceA
         'btnSync
         '
         Me.btnSync.Font = New System.Drawing.Font("MS Reference Sans Serif", 14.25!)
-        Me.btnSync.Location = New System.Drawing.Point(769, 338)
+        Me.btnSync.Location = New System.Drawing.Point(771, 364)
         Me.btnSync.Name = "btnSync"
         Me.btnSync.Size = New System.Drawing.Size(199, 35)
         Me.btnSync.TabIndex = 12
@@ -167,7 +169,7 @@ Partial Class frmAttendanceA
         'btnViewUnsynced
         '
         Me.btnViewUnsynced.Font = New System.Drawing.Font("MS Reference Sans Serif", 14.25!)
-        Me.btnViewUnsynced.Location = New System.Drawing.Point(291, 338)
+        Me.btnViewUnsynced.Location = New System.Drawing.Point(293, 364)
         Me.btnViewUnsynced.Name = "btnViewUnsynced"
         Me.btnViewUnsynced.Size = New System.Drawing.Size(248, 35)
         Me.btnViewUnsynced.TabIndex = 13
@@ -178,7 +180,7 @@ Partial Class frmAttendanceA
         '
         Me.lblStatus.AutoSize = True
         Me.lblStatus.Font = New System.Drawing.Font("MS Reference Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.Location = New System.Drawing.Point(497, 410)
+        Me.lblStatus.Location = New System.Drawing.Point(534, 412)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(17, 24)
         Me.lblStatus.TabIndex = 14
@@ -187,6 +189,8 @@ Partial Class frmAttendanceA
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.txtSearch)
         Me.Panel1.Controls.Add(Me.lblStatus)
         Me.Panel1.Controls.Add(Me.btnViewUnsynced)
         Me.Panel1.Controls.Add(Me.btnSync)
@@ -197,6 +201,24 @@ Partial Class frmAttendanceA
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1034, 458)
         Me.Panel1.TabIndex = 15
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("MS Reference Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(716, 18)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(267, 31)
+        Me.txtSearch.TabIndex = 25
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("MS Reference Sans Serif", 14.25!)
+        Me.Label2.Location = New System.Drawing.Point(512, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(198, 24)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "Search by Name/ID"
         '
         'frmAttendanceA
         '
@@ -242,4 +264,6 @@ Partial Class frmAttendanceA
     Friend WithEvents btnViewUnsynced As Button
     Friend WithEvents lblStatus As Label
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtSearch As TextBox
 End Class
